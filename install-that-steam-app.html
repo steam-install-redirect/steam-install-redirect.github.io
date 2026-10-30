@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <style>
+      body {background: #22242a;}
+    </style>
+    <header></header>
+    <main></main>
+    <footer></footer>
+  </body>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const appid = urlParams.get('appid');
+    if (appid) {
+    window.location.href = "steam://install/" + appid;
+    }
+  </script>
+</html>
