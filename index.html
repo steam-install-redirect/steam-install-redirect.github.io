@@ -4,20 +4,45 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
-    <style>
-      body {background: #22242a;}
-    </style>
-    <header></header>
-    <main></main>
+  <body style="background: #22242a; color: #ffffff; text-align: center;">
+    <header>
+      <title> Redirect to Steam app </title>
+    </header>
+    <main>
+      <h1 id="main"> Redirector to steam :></h1>
+      <p id="warnings">
+        javascript required - -" please point me to how to do this without it
+      </p>
+    </main>
     <footer></footer>
   </body>
   <script>
+
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const appid = urlParams.get('appid');
+    const appname = "unknown";
+
+    // function get_app_name(_appid) {
+    //   return fetch("https://api.steampowered.com/ICommunityService/GetApps/v1/?appids%5B0%5D=" + _appid).then((response) => {return response.apps[0].name();})};
+
+    function writewarning(txt) {
+      document.getElementById("warnings").textContent=txt;
+    };
+
+    writewarning("-w-")
+
     if (appid) {
-    window.location.href = "steam://install/" + appid;
-    }
+      writewarning(`Redirecting to ${appid}...`);
+      window.location.href = "steam://install/" + appid;
+    } else {
+      // in case APPID is empty
+      writewarning("No APPID specified! Add ?appid=APPID to url");
+    };
+
+    if (navigator.userAgent.indexOf("Firefox") > -1) {
+      // Check if running in firefox
+      writewarning("Steam links don't work in firefox(");
+    };
   </script>
 </html>
