@@ -15,9 +15,18 @@
         javascript required - -" please point me to how to do this without it
       </p>
     </main>
-    <footer></footer>
+    <footer>
+      <h2>Use <a href="https://steamre.direct/">steamre.direct</a> instead!</h2>
+    </footer>
   </body>
   <script>
+    // TODO:
+    // - Respond to Errors, not browser agent string
+    // - Add buttons to click if automatic action canceled
+    // - Ether deal with Steam API, or store list off all apps with their names
+    // - Probably move to `https://steam(-)redirect.github.io/install/`
+    // - Read APPID from path, not args, too.
+    // - A working javascript-less version if possible.
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
